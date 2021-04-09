@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FiEdit3, FiTrash } from 'react-icons/fi';
 
 import { Container } from './styles';
@@ -14,7 +14,13 @@ interface FoodProps {
 
 function Food( props:FoodProps ) {
   const { food, handleEditFood, handleDelete } = props;
-  const [ isAvailable, setIsAvailable ] = useState(false);
+  const [ isAvailable, setIsAvailable ] = useState(true);
+
+  useEffect(() => {
+    const { available } = props.food;
+
+    setIsAvailable(available)
+  }, []);
 
   const setEditingFood = ( ) => {
     handleEditFood(food);
