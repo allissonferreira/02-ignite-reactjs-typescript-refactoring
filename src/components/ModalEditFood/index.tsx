@@ -10,7 +10,7 @@ import FoodInterface from '../../interfaces/FoodInterface';
 interface ModalEditFoodProps {
   isOpen: boolean;
   setIsOpen: () => void;
-  editingFood: FoodInterface;
+  editingFood: FoodInterface | any;
   handleUpdateFood: (food:FoodInterface) => void;
 }
 

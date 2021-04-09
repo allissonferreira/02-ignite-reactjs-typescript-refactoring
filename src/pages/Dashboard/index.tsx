@@ -13,7 +13,7 @@ function Dashboard() {
   const [modalOpen, setModalOpen] = useState(false);
   const [editModalOpen, setEditModalOpen] = useState(false);
   const [foods, setFoods] = useState<FoodInterface[]>([]);
-  const [editingFood, setEditingFood] = useState<FoodInterface>();
+  const [editingFood, setEditingFood] = useState<FoodInterface | any>();
 
   useEffect(() => {
     async function fetchFoods() {
@@ -42,11 +42,6 @@ function Dashboard() {
 
   const handleUpdateFood = async (food:FoodInterface) => {
     try {
-      if (editingFood === undefined) {
-        console.log('Object <editingFood> is undefined');
-        return;
-      }
-
       const foodUpdated = await api.put(
         `/foods/${editingFood.id}`,
         { ...editingFood, ...food },
