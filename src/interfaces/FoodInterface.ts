@@ -4,4 +4,5 @@ export default interface FoodInterface {
     description: string;
     image: string;
     price: number;
+    available: boolean;
 };
