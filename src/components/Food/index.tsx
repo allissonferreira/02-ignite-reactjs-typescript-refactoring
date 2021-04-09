@@ -17,10 +17,10 @@ function Food( props:FoodProps ) {
   const [ isAvailable, setIsAvailable ] = useState(true);
 
   useEffect(() => {
-    const { available } = props.food;
+    const { food } = props;
 
-    setIsAvailable(available)
-  }, []);
+    setIsAvailable(food.available)
+  }, [props]);
 
   const setEditingFood = ( ) => {
     handleEditFood(food);
